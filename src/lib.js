@@ -416,6 +416,11 @@ export function yXmlFragmentToProsemirrorJSON (xmlFragment) {
       }
 
       const attrs = item.getAttributes()
+      const marks = attrs.marks
+      if (marks) {
+        response.marks = marks
+        delete attrs.marks
+      }
       if (Object.keys(attrs).length) {
         response.attrs = attrs
       }
